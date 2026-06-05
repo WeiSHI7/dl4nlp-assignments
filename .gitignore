@@ -1,0 +1,39 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.python-version
+
+# Notebook checkpoints
+.ipynb_checkpoints/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+
+# A1: large input corpora are downloaded by the notebook
+assignment1/train.txt
+assignment1/val.txt
+assignment1/a1_*.zip
+
+# A2: same — input data and zips
+assignment2/a1_*.zip
+
+# A3: HF Trainer working dirs
+assignment3/out_full_sft/
+assignment3/out_lora_sft/
+assignment3/out_pretrained_eval/
+
+# A4: regenerable artefacts
+assignment4/data/
+assignment4/chroma_pubmedqa/
+
+# HuggingFace cache (if it ends up local)
+.cache/
+hf_cache/
