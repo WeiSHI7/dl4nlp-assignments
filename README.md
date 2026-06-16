@@ -11,8 +11,8 @@ Author: Wei Shi
 ## Layout
 
 ```
-assignment1/   Byte-level language model from scratch (Tiny Shakespeare)
-assignment2/   Transformer-based language model
+assignment1/   Word-level LSTM language model from scratch (Simple English Wikipedia)
+assignment2/   Transformer-based language model (OLMo-2 style)
 assignment3/   Supervised fine-tuning + LoRA on SmolLM2-135M
 assignment4/   Retrieval-Augmented Generation over PubMedQA
 ```
@@ -24,18 +24,21 @@ Each folder contains:
 | `A{n}_solution.ipynb` | Filled-in notebook with executed outputs (the deliverable) |
 | `A{n}_skeleton.{ipynb,py}` | Original course skeleton, untouched |
 | `trained_model/` | (A1, A2) Saved model weights from the run |
-| `tokenizer.pkl` | (A1) Trained byte-pair tokenizer |
+| `tokenizer.pkl` | (A1) Trained word-level tokenizer (NLTK + 4 special tokens) |
 
 ## Reproducibility
 
-The notebooks are self-contained: each downloads its dataset (Tiny Shakespeare, SmolTalk, PubMedQA) on first run.
+A1 reads pre-existing `train.txt` / `val.txt` files (Simple English Wikipedia paragraphs, provided with the course). A3 and A4 download their datasets (SmolTalk, PubMedQA) on first run.
 
 Generated artefacts that are **not** checked in (regenerable from the notebooks):
 
-- `assignment1/train.txt`, `assignment1/val.txt` — Tiny Shakespeare splits (downloaded by the notebook)
 - `assignment3/out_full_sft/`, `out_lora_sft/`, `out_pretrained_eval/` — Trainer working dirs
 - `assignment4/data/ori_pqal.json` — PubMedQA dump (downloaded by the notebook)
 - `assignment4/chroma_pubmedqa/` — Chroma vector store (rebuilt on first run)
+
+Required files that must be present:
+
+- `assignment1/train.txt`, `assignment1/val.txt` — Simple English Wikipedia text (provided with the course assignment, not downloaded by the notebook)
 
 ## Environment
 
@@ -50,11 +53,11 @@ Dependencies are installed by the first `%pip install` cell in each notebook.
 
 ## Notes per assignment
 
-### A1 — Byte-level language model
-Train a small byte-level language model on Tiny Shakespeare from scratch.
+### A1 — Word-level LSTM language model
+Train a small word-level LSTM language model from scratch on a Simple English Wikipedia paragraph corpus. Tokenizer is NLTK `word_tokenize` + lowercasing, with 4 reserved special tokens (`<PAD>`, `<UNK>`, `<BOS>`, `<EOS>`).
 
 ### A2 — Transformer LM
-Continuation of A1, larger transformer model.
+Continuation of A1 (same data pipeline and tokenizer), with the LSTM replaced by a small OLMo-2-style decoder (RMSNorm, RoPE, SwiGLU MLP, QK-Norm, pre-norm residual blocks). Also includes a side-by-side qualitative comparison with the pre-trained OLMo-2 1B.
 
 ### A3 — SFT + LoRA
 Full supervised fine-tuning vs. LoRA on SmolLM2-135M with SmolTalk.
