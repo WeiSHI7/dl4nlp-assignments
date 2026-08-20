@@ -17,7 +17,7 @@ Thumbs.db
 .vscode/
 .idea/
 
-# A1: large input corpora are downloaded by the notebook
+# A1: large course-provided input corpora
 assignment1/train.txt
 assignment1/val.txt
 assignment1/a1_*.zip

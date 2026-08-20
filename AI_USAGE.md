@@ -39,11 +39,12 @@ how AI was — and was not — used.
 
 ## Reproducibility
 
-All notebooks are self-contained and download their datasets on first
-run. The executed cells in each `*_solution.ipynb` reflect actual
-runs on the listed hardware (CUDA / Apple-Silicon MPS / CPU,
-auto-selected). Re-executing the notebooks should produce numerically
-similar results modulo seed-dependent variation.
+A3 and A4 download their datasets on first run; A1 and A2 read the
+course-provided `train.txt` / `val.txt`. The executed cells in each
+`*_solution.ipynb` reflect actual runs on the listed hardware (CUDA /
+Apple-Silicon MPS / CPU, auto-selected). Re-executing the notebooks
+should produce numerically similar results modulo seed-dependent
+variation.
 
 ## Tools
 

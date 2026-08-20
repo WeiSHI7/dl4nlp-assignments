@@ -22,7 +22,7 @@ Each folder contains:
 | File | Purpose |
 |---|---|
 | `A{n}_solution.ipynb` | Filled-in notebook with executed outputs (the deliverable) |
-| `A{n}_skeleton.{ipynb,py}` | Original course skeleton, untouched |
+| `A{n}_skeleton.{ipynb,py}` | Original course skeleton (A1–A3; A4 scaffolding was AI-generated) |
 | `trained_model/` | (A1, A2) Saved model weights from the run |
 | `tokenizer.pkl` | (A1) Trained word-level tokenizer (NLTK + 4 special tokens) |
 
@@ -49,7 +49,7 @@ Required files that must be present:
 - (A4) `langchain`, `langchain-huggingface`, `langchain-chroma`,
   `sentence-transformers`, `chromadb`
 
-Dependencies are installed by the first `%pip install` cell in each notebook.
+A3 and A4 install extra dependencies via a `%pip install` cell.
 
 ## Notes per assignment
 
